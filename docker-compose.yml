@@ -5,12 +5,13 @@ services:
       context: .
       dockerfile: docker/node/Dockerfile
     volumes:
-      - ./dist:/usr/src/app/dist
+      - ./src:/usr/src/app/src
       - ./package.json:/usr/src/app/package.json
       - ./package-lock.json:/usr/src/app/package-lock.json
       - ./.env:/usr/src/app/.env
     ports:
       - 3000:3000
+      - 3010:3010
     command: nodemon dist/server.js
     stdin_open: true
     tty: true
